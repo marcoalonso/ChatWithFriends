@@ -102,6 +102,10 @@ class LoginController: UIViewController {
                                      right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
     }
     
+    
+}
+
+extension UIViewController {
     func configureGradienLayer(){
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemBlue.cgColor, UIColor.systemPink.cgColor]
