@@ -10,6 +10,7 @@ import UIKit
 class LoginController: UIViewController {
 
     // MARK: - Properties
+    private var viewModel = LoginViewModel()
     
     private let iconImage: UIImageView = {
         let iv = UIImageView()
@@ -32,9 +33,11 @@ class LoginController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.backgroundColor = .systemBlue
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         button.setHeight(height: 50)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -70,6 +73,10 @@ class LoginController: UIViewController {
         configureUI()
     }
     // MARK: - Selectors
+    @objc func handleLogin() {
+        print("DEBUG: Handle login here ...")
+    }
+    
     @objc func handleShowSignUp(){
         print("Show sign up page...")
         let controller = RegistrationController()
@@ -77,7 +84,27 @@ class LoginController: UIViewController {
         
     }
     
+    @objc func textDidChange(sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        checkFormStatus()
+    }
+    
     // MARK: - Helpers
+    func checkFormStatus(){
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        }
+    }
+    
     
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
@@ -100,6 +127,8 @@ class LoginController: UIViewController {
         dontHaveAccountButton.anchor(left: view.leftAnchor,
                                      bottom: view.safeAreaLayoutGuide.bottomAnchor,
                                      right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
     

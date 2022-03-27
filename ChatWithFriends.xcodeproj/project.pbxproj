@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		601E650C27F0D7FC00DEADB4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E650B27F0D7FC00DEADB4 /* LoginViewModel.swift */; };
 		60422F1627E183B000971F70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60422F1527E183B000971F70 /* AppDelegate.swift */; };
 		60422F1827E183B000971F70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60422F1727E183B000971F70 /* SceneDelegate.swift */; };
 		60422F1A27E183B000971F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60422F1927E183B000971F70 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		601E650B27F0D7FC00DEADB4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		60422F1227E183B000971F70 /* ChatWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60422F1527E183B000971F70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60422F1727E183B000971F70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		60422F2B27E1841F00971F70 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				601E650B27F0D7FC00DEADB4 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				607DD06F27E537F8004F49EF /* RegistrationController.swift in Sources */,
 				607DD06D27E537E5004F49EF /* LoginController.swift in Sources */,
 				607DD07127E53C45004F49EF /* Extensions.swift in Sources */,
+				601E650C27F0D7FC00DEADB4 /* LoginViewModel.swift in Sources */,
 				6059B4DF27E7AA4100F52AF5 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
