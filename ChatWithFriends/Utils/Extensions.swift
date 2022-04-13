@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import JGProgressHUD
 
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor? = nil,
@@ -77,5 +77,32 @@ extension UIView {
     func setWidth(width: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+}
+
+
+extension UIViewController {
+    
+    static let hud = JGProgressHUD(style: .light)
+    
+    
+    func configureGradienteLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
+        gradient.locations = [0,1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+    
+    func showLoader(_ show: Bool, withText text: String? = "Loading"){
+        view.endEditing(true)
+        
+        UIViewController.hud.textLabel.text = text
+        
+        if show {
+            UIViewController.hud.show(in: view)
+        } else {
+            UIViewController.hud.dismiss(animated: true)
+        }
     }
 }
